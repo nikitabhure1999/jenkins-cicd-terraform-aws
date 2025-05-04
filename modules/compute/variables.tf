@@ -8,13 +8,13 @@ variable "region" {
 variable "ssh_key_public" {
   type    = string
   #Replace this with the location of you public key .pub
-  default = "~/.ssh/id_rsa.pub"
+  default = "~/.ssh/docker.pub"
 }
 
 variable "ssh_key_private" {
   type    = string
   #Replace this with the location of you private key
-  default = "~/.ssh/id_rsa"
+  default = "~/.ssh/docker"
 }
 
 variable "subnet_ips" {}

@@ -1,0 +1,23 @@
+[0m[1mmodule.vpc.aws_vpc.tf_vpc: Refreshing state... [id=vpc-04fbbbbed5e339adf][0m
+[0m[1mmodule.vpc.data.aws_availability_zones.azs: Reading...[0m[0m
+[0m[1mmodule.compute.data.aws_ssm_parameter.webserver-ami: Reading...[0m[0m
+[0m[1mmodule.compute.aws_key_pair.aws-key: Refreshing state... [id=jenkins][0m
+[0m[1mmodule.vpc.data.aws_availability_zones.azs: Read complete after 0s [id=us-east-1][0m
+[0m[1mmodule.compute.data.aws_ssm_parameter.webserver-ami: Read complete after 0s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2][0m
+[0m[1mmodule.vpc.aws_internet_gateway.tf_igw: Refreshing state... [id=igw-036a5e8bc5b290f6b][0m
+[0m[1mmodule.vpc.aws_subnet.tf_public_subnet: Refreshing state... [id=subnet-0fa6ceef7aa758e5e][0m
+[0m[1mmodule.vpc.aws_security_group.tf_public_sg: Refreshing state... [id=sg-0a0489b5084abd8f6][0m
+[0m[1mmodule.vpc.aws_route_table.tf_public_route: Refreshing state... [id=rtb-0380d4136e39ccb95][0m
+[0m[1mmodule.compute.aws_instance.jenkins: Refreshing state... [id=i-08640decee9371b0b][0m
+[0m[1mmodule.vpc.aws_route_table_association.tf_public_assoc: Refreshing state... [id=rtbassoc-0e4325f444300c078][0m
+
+[0m[1m[32mNo changes.[0m[1m Your infrastructure matches the configuration.[0m
+
+[0mTerraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mJenkins-Public-URL = "http://54.157.96.255:8080"
