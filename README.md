@@ -275,7 +275,7 @@ aws --version
 
 You see the following output
 
-![Image49](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image49.png "Image49")
+![Image49](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image49.png)
 
 ## **Step 3: Create AWS account**
 
@@ -283,11 +283,11 @@ After Creating
 
 Click on account name - Select Security Credentials
 
-![Image50](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image50.png "Image50")
+![Image50](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image50.png")
 
 Click **Create access key**.
 
-![Image51](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image51.png "Image51")
+![Image51](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image51.png)
 
 **Note:** Download the key file or copy the Access Key ID & Secret Access Key (Secret Key is shown only once!).
 
@@ -319,7 +319,7 @@ aws sts get-caller-identity
 
 If your AWS CLI is properly configured, you\'ll see a response like this:
 
-![Image52](http://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image52.png "Image52")
+![Image52](http://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image52.png)
 
 ## **Step 4: Ansible Playbook**
 
@@ -368,7 +368,7 @@ The overall goal of this playbook is to set up Jenkins and Docker on the EC2 ins
 
 - prepares your environment and configures everything Terraform needs to interact with your infrastructure.
 
-![Image4](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image4.png "Image4")
+![Image4](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image4.png)
 
 2. `terraform fmt`
 
@@ -378,7 +378,7 @@ The overall goal of this playbook is to set up Jenkins and Docker on the EC2 ins
 
 - used to **check the syntax and validity** of your Terraform configuration files. It helps you catch errors in the configuration before you attempt to run other Terraform commands, like terraform plan or terraform apply.
 
-![Image5](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image5.png "Image5")
+![Image5](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image5.png)
 
 4. `terraform plan`
 
@@ -390,7 +390,7 @@ The overall goal of this playbook is to set up Jenkins and Docker on the EC2 ins
 
 - executes the changes required to reach the desired state of your infrastructure as defined in your configuration files. It creates, updates, or deletes resources after showing a preview and asking for your approval (unless auto-approved).
 
-![Image6](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image6.png "Image6")
+![Image6](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image6.png)
 
 If everything is set up correctly, you will see the public IP address displayed at the end.
 
@@ -410,7 +410,7 @@ You will also see the EC2 instance successfully created and running in your AWS 
 
 This EC2 instance will host your Jenkins server, and its public IP will be used to access the Jenkins
 
-![Image35](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image35.png "Image35")
+![Image35](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image35.png)
 
 ## **Step 6: Access Jenkins Dashboard**
 
