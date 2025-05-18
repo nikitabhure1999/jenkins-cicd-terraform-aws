@@ -7,6 +7,16 @@
 - [Implementation Highlights](#implementation-highlights)
 - [Troubleshooting and errors which I faced during this project implementation](#troubleshooting-and-errors-which-i-faced-during-this-project-implementation)
 - [Step 1: Transfer Files files from Windows to Linux Machine](#step-1-transfer-files-files-from-windows-to-linux-machine)
+- [Step 2: Install Terraform and AWS Command Line Interface (CLI)](#step-2-install-terraform-and-aws-command-line-interface-cli)
+- [Step 3: Create AWS account](#step-3-create-aws-account)
+- [Step 4: Ansible Playbook](#step-4-ansible-playbook)
+- [Step 5: Provisioning AWS Infrastructure using Terraform and Ansible Playbook](#step-5-provisioning-aws-infrastructure-using-terraform-and-ansible-playbook)
+- [Step 6: Access Jenkins Dashboard](#step-6-access-jenkins-dashboard)
+- [Step 7: Configure GitHub Access Key in Jenkins]((#step-7-configure-github-access-key-in-jenkins)
+)
+- [Step 8: Configure GitHub and DockerHub Credentials in Jenkins](#step-8-configure-github-and-dockerhub-credentials-in-jenkins)
+- [Step 9: Create a Multibranch Pipeline project in Jenkins](#step-9-create-a-multibranch-pipeline-project-in-jenkins)
+- [Step 10: Terraform Destroy](#step-10-terraform-destroy)
 
 ## **Objective:**
 
@@ -502,7 +512,7 @@ After installation, the plugin should appear under the **Installed** tab. You ca
 
 If necessary, you can restart Jenkins to ensure that all configurations are loaded properly. To do this, go to **Manage Jenkins** \> **Restart Jenkins**.
 
-## **Step 6: Configure GitHub Access Key in Jenkins**
+## **Step 7: Configure GitHub Access Key in Jenkins**
 
 ### **1. Generate Personal Access Token on GitHub**
 
@@ -582,7 +592,7 @@ Once the connection is successful, scroll to the bottom and click **Save** to ap
 
 Now that Jenkins has the GitHub access token configured, you can use it in Jenkins pipelines for tasks like cloning repositories or triggering GitHub webhooks.
 
-## **Step7: Configure GitHub and DockerHub Credentials in Jenkins**
+## **Step 8: Configure GitHub and DockerHub Credentials in Jenkins**
 
 To allow Jenkins to securely interact with GitHub and DockerHub, add your credentials as follows:
 
@@ -640,7 +650,7 @@ This will securely store your credentials for use in Jenkins pipelines.
 
 ![Image29](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image29.png)
 
-## **Step 8: Create a Multibranch Pipeline project in Jenkins.**
+## **Step 9: Create a Multibranch Pipeline project in Jenkins.**
 
 - **Access Jenkins Dashboard**
 
@@ -732,7 +742,7 @@ For example: <http://44.222.88.85:1233/>
 
 ![Image44](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image44.png)
 
-## **Step 9: terraform destroy**
+## **Step 10: terraform destroy**
 
 Once you have completed the lab, it is essential to destroy the provisioned infrastructure resources to prevent any future costs.  
 
@@ -747,3 +757,6 @@ After typing \"yes,\" all AWS resources will be destroyed. You will see the foll
 To verify, log in to your AWS account, and you should see that your EC2 instance has been terminated.
 
 ![Image47](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image47.png)
+
+
+[def]: #step-7-configure-github-access-key-in-jenkins
