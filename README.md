@@ -1,6 +1,13 @@
 
 # **Implementation of React App Deployment on AWS Infrastructure via Jenkins CI/CD Pipeline**Jenkins CI/CD Pipeline
 
+## **Table of Contents**
+
+- [Objective](#objective)
+- [Implementation Highlights](#implementation-highlights)
+- [Troubleshooting and errors which I faced during this project implementation](#troubleshooting-and-errors-which-i-faced-during-this-project-implementation)
+- [Step 1: Transfer Files files from Windows to Linux Machine](#step-1-transfer-files-files-from-windows-to-linux-machine)
+
 ## **Objective:**
 
 The objective of this project is to design and implement a robust CI/CD
@@ -740,5 +747,3 @@ After typing \"yes,\" all AWS resources will be destroyed. You will see the foll
 To verify, log in to your AWS account, and you should see that your EC2 instance has been terminated.
 
 ![Image47](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image47.png)
-
->>>>>>> a65aa3b (Readme file)
