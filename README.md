@@ -399,14 +399,15 @@ This EC2 instance will host your Jenkins server, and its public IP will be used 
 
 Once the infrastructure is successfully deployed and Jenkins is installed, follow these steps to connect:
 
-1. **Enter the public IP address with port 8080** (provided in the Terraform output).
-    Example: <http://54.157.96.255:8080>
+### **1. Enter the public IP address with port 8080** (provided in the Terraform output).**\
 
-2. You should see the Jenkins setup screen.
+Example: <http://54.157.96.255:8080>
+
+### **2. You should see the Jenkins setup screen.**
 
 ![Image7](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image7.png "Image7")
 
-3. To complete the setup, you may need the **initial admin password**, which can be retrieved by running this command on your EC2 instance:
+### **3. To complete the setup, you may need the **initial admin password**, which can be retrieved by running this command on your EC2 instance**
 
 Connect to ec2-instance by running following command
 
@@ -416,7 +417,7 @@ ssh -i /root/.ssh/docker ec2-user@ 54.157.96.255
 
 ![Image8](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image8.png "Image8")
 
-4. On your EC2 instance, run the following command to retrieve the password:
+### **4. On your EC2 instance, run the following command to retrieve the password:**
 
 ```shell
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
@@ -424,23 +425,21 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ![Image9](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image9.png "Image9")
 
-5. **Enter the Password**
+### **5. Enter the Password**:
 
 Paste the password into the setup wizard's prompt to unlock Jenkins.
 
-6. **Install Suggested Plugins**
+### **6. Install Suggested Plugins**
 
 Jenkins will now offer to install a set of suggested plugins. These plugins provide essential functionality for Jenkins operations.
 
 Click on **\"Install suggested plugins\"** to proceed with the installation.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image18.png){width="7.0in" height="3.9375in"}
+![Image10](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image10.png)
 
-7. **Create the First Admin User**
+### **7. Create the First Admin User**:
 
-After the plugin installation is complete, Jenkins will prompt you to
-set up the first admin user. Fill in the required information:
+After the plugin installation is complete, Jenkins will prompt you to set up the first admin user. Fill in the required information:
 
 **Username**: Choose a username (e.g., admin).
 
@@ -450,109 +449,84 @@ set up the first admin user. Fill in the required information:
 
 **Email Address**: Provide your email.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image19.png){width="6.808333333333334in"
-height="3.783333333333333in"}
+![Image11]https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image11.png)
 
 Once the form is filled, click **\"Save and Finish\"**.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image20.png){width="7.016666666666667in"
-height="4.21875in"}
+![Image12]https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image12.png)
 
-8.  **Jenkins Dashboard**
+### **8. Jenkins Dashboard**:
 
-Once the setup is complete, you will be redirected to the Jenkins
-dashboard as shown in following image where you can start creating
-pipelines, managing jobs, and configuring Jenkins further.
+Once the setup is complete, you will be redirected to the Jenkins dashboard as shown in following image where you can start creating pipelines, managing jobs, and configuring Jenkins further.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image21.png){width="7.5in" height="3.95in"}
+![Image13](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image13.png)
 
-9.  Install Docker Pipeline Plugin
+### 9. Install Docker Pipeline Plugin
 
-**Access the Jenkins Dashboard**
+**Access the Jenkins Dashboard**:
 
 After logging into Jenkins, you will be on the Jenkins dashboard.
 
-**Go to Manage Jenkins**
+**Go to Manage Jenkins**:
 
 From the left sidebar, click on **\"Manage Jenkins\"**.
 
-**Manage Plugins**
+**Manage Plugins**:
 
 Under \"Manage Jenkins\", click on **\"Manage Plugins\"**.
 
-**Search for Docker Pipeline Plugin**
+**Search for Docker Pipeline Plugin**:
 
-In the **Available** tab, use the search bar to search for **\"Docker
-Pipeline\"**.
+In the **Available** tab, use the search bar to search for **\"Docker Pipeline\"**.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image22.png){width="6.383333333333334in"
-height="2.7333333333333334in"}
+![Image14](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image14.png)
 
-**Install Docker Pipeline Plugin**
+**Install Docker Pipeline Plugin**:
 
-Once found, select the **Docker Pipeline** plugin and click **\"Install
-without restart\"**.
+Once found, select the **Docker Pipeline** plugin and click **\"Install without restart\"**.
 
 This will install the plugin without requiring a Jenkins restart.
 
-**Verify Installation**
+**Verify Installation**:
 
-After installation, the plugin should appear under the **Installed**
-tab. You can now start using Docker commands in your Jenkins pipelines.
+After installation, the plugin should appear under the **Installed** tab. You can now start using Docker commands in your Jenkins pipelines.
 
-**Restart Jenkins (Optional)**
+**Restart Jenkins (Optional)**:
 
-If necessary, you can restart Jenkins to ensure that all configurations
-are loaded properly. To do this, go to **Manage Jenkins** \> **Restart
-Jenkins**.
+If necessary, you can restart Jenkins to ensure that all configurations are loaded properly. To do this, go to **Manage Jenkins** \> **Restart Jenkins**.
 
-**Step 6: Configure GitHub Access Key in Jenkins**
+## **Step 6: Configure GitHub Access Key in Jenkins**
 
-1.  **Generate Personal Access Token on GitHub**
+### **1. Generate Personal Access Token on GitHub**
 
-- Go to **GitHub** \> **Settings** \> **Developer settings** \>
-  **Personal access tokens** \> **Tokens(Classic)**
+- Go to **GitHub** \> **Settings** \> **Developer settings** \> **Personal access tokens** \> **Tokens(Classic)**
 
 - Click on **Generate new token**.
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](media/image23.png){width="5.941666666666666in"
-> height="4.21875in"}
+![Image15](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image15.png)
 
 - Select the required scopes (e.g., repo, admin:repo_hook, etc.).
 
 - Click **Generate token** and copy the token.
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](media/image24.png){width="6.566666666666666in"
-> height="3.6666666666666665in"}
-
-2.  **Log into Jenkins**
+### **2. Log into Jenkins**
 
 Open your Jenkins dashboard by accessing <http://54.157.96.255:8080> and
 logging in with your admin credentials.
 
-3.  **Go to Manage Jenkins**
+### **3. Go to Manage Jenkins**
 
 From the left-hand sidebar of Jenkins, click on **\"Manage Jenkins\"**.
 
-**4. Configure System**
+### **4. Configure System**
 
-Navigate to **\"Manage Jenkins\"**, then under **System Configuration**,
-select **System**.
+Navigate to **\"Manage Jenkins\"**, then under **System Configuration**, select **System**.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image25.png){width="6.991666666666666in"
-height="3.8583333333333334in"}
+![Image17](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image17.png)
 
-**5. Add GitHub Access Key**
+### **5. Add GitHub Access Key**
 
-Scroll down to the **GitHub** section (or search for \"GitHub\" in the
-page). Here\'s how to configure it:
+Scroll down to the **GitHub** section (or search for \"GitHub\" in the page). Here\'s how to configure it:
 
 - **Under GitHub Server**
 
@@ -562,9 +536,7 @@ Fill Following information
 
 **API Url:** Keep default ( <https://api.github.com>**)**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image26.png){width="6.583333333333333in"
-height="3.475in"}
+![Image19](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image19.png)
 
 **Click on Add → select Jenkins → Under Kind - Select Secret text**
 
@@ -580,70 +552,52 @@ height="3.475in"}
 
 **This will display the following screen.**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image27.png){width="6.741666666666666in"
-height="3.95in"}
+![Image20](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image20.png)
 
-6.  **Test the Connection**
+### **6. Test the Connection**
 
-- Select **GitHubKey** from the **Credentials** drop-down, check
-  **Manage hooks** (to enable GitHub webhooks for repository changes),
-  and then click **Test Connection**.
+- Select **GitHubKey** from the **Credentials** drop-down, check **Manage hooks** (to enable GitHub webhooks for repository changes), and then click **Test Connection**.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image28.png){width="7.5in"
-height="3.2666666666666666in"}
+![Image21](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image21.png)
 
 - Click **Test Connection** to ensure that Jenkins can authenticate with
   GitHub using the provided token.
 
 - If the connection is successful, you should see a confirmation message
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](media/image29.png){width="6.308333333333334in"
-> height="3.4583333333333335in"}
+> ![Image22](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image22.png)
 
-**7. Save the Configuration**
+### **7. Save the Configuration**
 
-Once the connection is successful, scroll to the bottom and click
-**Save** to apply the changes.
+Once the connection is successful, scroll to the bottom and click **Save** to apply the changes.
 
-**8. Use GitHub Credentials in Jenkins Pipelines**
+### **8. Use GitHub Credentials in Jenkins Pipelines**
 
-Now that Jenkins has the GitHub access token configured, you can use it
-in Jenkins pipelines for tasks like cloning repositories or triggering
-GitHub webhooks.
+Now that Jenkins has the GitHub access token configured, you can use it in Jenkins pipelines for tasks like cloning repositories or triggering GitHub webhooks.
 
-**Step7: Configure GitHub and DockerHub Credentials in Jenkins**
+## **Step7: Configure GitHub and DockerHub Credentials in Jenkins**
 
-To allow Jenkins to securely interact with GitHub and DockerHub, add
-your credentials as follows:
+To allow Jenkins to securely interact with GitHub and DockerHub, add your credentials as follows:
 
 **Go to Jenkins Dashboard**  
+
 Navigate to your Jenkins instance.
 
-**Click on the small arrow under your user and select Credentials**
+**Click on the small arrow under your user and select Credentials**:
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image30.png){width="6.591666666666667in"
-height="2.816666666666667in"}
+![Image23](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image23.png)
 
 - **Select System under Stores from Parent.**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image31.png){width="6.65in" height="4.21875in"}
+![Image24](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image24.png)
 
 - **Then click on Global credentials (unrestricted)**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image32.png){width="6.666666666666667in"
-height="4.21875in"}
+![Image25](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image25.png)
 
 - **Click on Add Credentials**
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image33.png){width="6.941666666666666in"
-height="4.21875in"}
+![Image26](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image26.png)
 
 - For **GitHub**:
 
@@ -651,12 +605,9 @@ height="4.21875in"}
 
 - Choose **Username with password**
 
-- Enter your GitHub username and access token (Generated on GitHub
-  Account)
+- Enter your GitHub username and access token (Generated on GitHub Account)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image34.png){width="7.5in"
-height="3.9583333333333335in"}
+![Image27]https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image27.png)
 
 - For **DockerHub**:
 
@@ -670,22 +621,19 @@ Add your GitHub Account by entering the following:
 
 - **Password:** Enter your Docker Hub Password
 
-- **ID:** Dockerhub_login (It is important the keep the exact ID name as
-  we are referring to it in Jenkinsfile)
+- **ID:** Dockerhub_login (It is important the keep the exact ID name as we are referring to it in Jenkinsfile)
 
 - **Description:** DockerHub
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image35.png){width="7.5in" height="3.375in"}
+![Image28](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image28.png)
 
-**Click OK/Save**  
+**Click OK/Save**:
+
 This will securely store your credentials for use in Jenkins pipelines.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image36.png){width="7.5in"
-height="3.0416666666666665in"}
+![Image29](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image29.png)
 
-**Step 8: Create a Multibranch Pipeline project in Jenkins.**
+## **Step 8: Create a Multibranch Pipeline project in Jenkins.**
 
 - **Access Jenkins Dashboard**
 
@@ -709,9 +657,7 @@ height="3.0416666666666665in"}
 
 - Click OK.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image37.png){width="7.5in"
-height="3.6166666666666667in"}
+![Image30](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image30.png)
 
 - **Configure the Pipeline**
 
@@ -721,23 +667,19 @@ height="3.6166666666666667in"}
 
 - Under Branch Sources, click Add Source and choose GitHub
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image38.png){width="7.5in" height="4.21875in"}
+![Image31](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image31.png)
 
 - Provide the repository URL.
 
 - Then Click Validate -- You will see the following
 
-![A white rectangular object with a black line AI-generated content may
-be incorrect.](media/image39.png){width="7.5in"
-height="1.6340277777777779in"}
+![Image33](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image33.png)
 
 - **Configure Scan Settings**
 
 <!-- -->
 
-- Set the scan interval (e.g., every 1 minute or 1 hour) under Scan
-  Multibranch Pipeline Triggers.
+- Set the scan interval (e.g., every 1 minute or 1 hour) under Scan Multibranch Pipeline Triggers.
 
 - This allows Jenkins to detect new branches or updates automatically.
 
@@ -749,74 +691,54 @@ height="1.6340277777777779in"}
 
 - Click Save.
 
-- Jenkins will immediately scan the repository and automatically create
-  jobs for each branch that contains a Jenkinsfile.
+- Jenkins will immediately scan the repository and automatically create jobs for each branch that contains a Jenkinsfile.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image40.png){width="7.5in" height="4.21875in"}
+![Image34](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image34.png)
 
-- Click on \#1 -- click console output you will see running Jenkins
-  pipeline
+- Click on \#1 -- click console output you will see running Jenkins pipeline
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image41.png){width="7.5in" height="4.21875in"}
+![Image38](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image38.png)
 
-- Click **Proceed**. After a short while, the build should complete
-  successfully, and you will be presented with the following screen.
+- Click **Proceed**. After a short while, the build should complete successfully, and you will be presented with the following screen.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image42.png){width="6.808333333333334in"
-height="4.21875in"}
+![Image39](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image39.png)
 
-- Click on \#1 Build -- Pipeline Console.  
-  You will see that your react-app has been deployed to production.
+- Click on \#1 Build -- Pipeline Console.  You will see that your react-app has been deployed to production.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image43.png){width="7.5in"
-height="4.091666666666667in"}
+![Image41](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image41.png)
 
-- You can log into the server and run the following command to check the
-  status of your running container.
+- You can log into the server and run the following command to check the status of your running container.
 
+```shell
 docker ps
+```
 
-![A black screen with white text AI-generated content may be
-incorrect.](media/image44.png){width="7.5in"
-height="1.7347222222222223in"}
+![Image42](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image42.png)
 
-- Navigate to your Docker Hub account, where you should be able to see
-  the pushed and pulled images under **Repositories**.
+- Navigate to your Docker Hub account, where you should be able to see the pushed and pulled images under **Repositories**.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image45.png){width="7.5in" height="4.21875in"}
+![Image43](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image43.png)
 
-- Navigate to the public IP of your server, followed by port 1233 (e.g.,
-  \<Public IP\>:1233). The sample React application should be running.  
-  For example: <http://44.222.88.85:1233/>
+- Navigate to the public IP of your server, followed by port 1233 (e.g., \<Public IP\>:1233). The sample React application should be running.  
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](media/image46.png){width="7.5in" height="4.21875in"}
+For example: <http://44.222.88.85:1233/>
 
-**Step 9: terraform destroy**
+![Image44](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image44.png)
 
-Once you have completed the lab, it is essential to destroy the
-provisioned infrastructure resources to prevent any future costs.  
-To do so, destroy the Terraform-managed infrastructure and confirm by
-typing \"yes.\"
+## **Step 9: terraform destroy**
 
-![A computer screen shot of a computer screen AI-generated content may
-be incorrect.](media/image47.png){width="7.5in" height="4.21875in"}
+Once you have completed the lab, it is essential to destroy the provisioned infrastructure resources to prevent any future costs.  
 
-After typing \"yes,\" all AWS resources will be destroyed. You will see
-the following screen once the destruction is complete.
+To do so, destroy the Terraform-managed infrastructure and confirm by typing \"yes.\"
 
-![A screen shot of a computer AI-generated content may be
-incorrect.](media/image48.png){width="7.5in" height="4.21875in"}
+![Image45](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image45.png)
 
-To verify, log in to your AWS account, and you should see that your EC2
-instance has been terminated.
+After typing \"yes,\" all AWS resources will be destroyed. You will see the following screen once the destruction is complete.
 
-![A computer screen with a white screen AI-generated content may be
-incorrect.](media/image49.png){width="7.5in" height="4.21875in"}
+![Image46](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image46.png)
+
+To verify, log in to your AWS account, and you should see that your EC2 instance has been terminated.
+
+![Image47](https://github.com/gurpreet2828/Jenkins-CICD/blob/0ba3fe647030f13e6b45a1a91ff467b48ba3ab4e/Images/Image47.png)
 
 >>>>>>> a65aa3b (Readme file)
