@@ -1,6 +1,6 @@
 
 # **Implementation of React App Deployment on AWS Infrastructure via Jenkins CI/CD Pipeline**Jenkins CI/CD Pipeline
-[Troubleshooting](# https://github.com/gurpreet2828/Jenkins-CICD/blob/main/README.md?plain=1#troubleshooting-and-errors-which-i-faced-during-this-project-implementation)
+[Troubleshooting](#troubleshooting-and-errors-which-i-faced-during-this-project-implementation)
 ## **Objective:**
 
 The objective of this project is to design and implement a robust CI/CD
