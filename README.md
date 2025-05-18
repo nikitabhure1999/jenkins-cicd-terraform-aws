@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-# DevOpsCertificate_Module2_Lab6_Jenkins-CICD
-
-`terraform`
-=======
 
 # **Implementation of React App Deployment on AWS Infrastructure via Jenkins CI/CD Pipeline**Jenkins CI/CD Pipeline
 
-##**Objective:**
+## **Objective:**
 
 The objective of this project is to design and implement a robust CI/CD
 pipeline for deploying a React application on AWS. This involves:
@@ -25,7 +20,7 @@ pipeline for deploying a React application on AWS. This involves:
 
 - Ensuring the entire process is scalable, repeatable, and automated
 
-##**Implementation Highlights:**
+## **Implementation Highlights:**
 
 - Files are transferred from a local Windows machine to a Linux server using scp.
 
@@ -36,7 +31,9 @@ pipeline for deploying a React application on AWS. This involves:
 - **Jenkins is configured to:**
 <!-- -->
 Use GitHub access tokens for repo access.
+
 Use DockerHub credentials for image push/pull.
+
 Automatically build branches using a multibranch pipeline.
 
 <!-- -->
@@ -47,14 +44,13 @@ Automatically build branches using a multibranch pipeline.
 
 - terraform destroy is used to deprovision all resources post-deployment.
 
-##**Troubleshooting and errors which I faced during this project implementation**
+## **Troubleshooting and errors which I faced during this project implementation**
 
-###**[Error 1: Handling Public IP Changes on EC2 Instance for Jenkins**
+### **Error 1: Handling Public IP Changes on EC2 Instance for Jenkins**
 
-**Issue Summary**
+#### **Issue Summary:**
 
-When an EC2 instance is stopped and restarted, AWS automatically assigns
-a new public IP address. As a result:
+When an EC2 instance is stopped and restarted, AWS automatically assigns a new public IP address. As a result:
 
 - The Jenkins server, which relies on the public IP, becomes inaccessible using the old IP.
 
@@ -62,28 +58,33 @@ a new public IP address. As a result:
 
 - Builds may fail or not run at all due to this misconfiguration.
 
-**Resolution Steps**
+#### **Resolution Steps**
 
 To update the Jenkins server with the new public IP and restore full functionality, follow these steps:
 
-1.  **Re-Provision Jenkins Server IP Using Terraform**
+1. **Re-Provision Jenkins Server IP Using Terraform**
 
 Run the following commands from your infrastructure directory to re-provision the new IP address:
+
+```bash
+terraform init
 ```
-   terraform init
+
+```bash
+terraform validate
 ```
-```
-terraform validate`
-```
-```
+
+```bash
 terraform plan
 ```
-```
+
+```bash
 terraform apply
 ```
+
 These commands will reinitialize the configuration, validate the setup, and apply the necessary changes, including the updated public IP.
 
-2.  **Manually Update Jenkins Configuration**
+2. **Manually Update Jenkins Configuration**
 
 After Terraform provisions the new IP, you must manually update the Jenkins configuration to reflect this change.
 
@@ -97,7 +98,7 @@ Then enter the new public IP address in the Jenkins URL field.
 
 ***Note:** To avoid this issue in the future, consider assigning an Elastic IP to your EC2 instance to retain a static public IP.*
 
-###**Error 2: Updating Docker Image Reference in Jenkinsfile**
+### **Error 2: Updating Docker Image Reference in Jenkinsfile**
 
 **Issue:**
 
@@ -111,17 +112,17 @@ To resolve this, the image reference needs to be updated to reflect my GitHub us
 
 **Solution:** The Jenkinsfile uses a hardcoded Docker image reference (wessamabdelwahab/react-app) that needs to be updated to reflect your GitHub username (e.g., gurpreet2828/react-app).
 
-1.  **Locate the Jenkinsfile:** Find it in the root directory or in .ci/ or .jenkins/ folders.
+1. **Locate the Jenkinsfile:** Find it in the root directory or in .ci/ or .jenkins/ folders.
 
     **I placed the Jenkinsfile at the following location:**
 
-   ```shell
+```shell
  /home/administrator/react-app/Jenkinsfile
 ```
 
-2.  **Search for the Reference:** Use the command ` grep -r  \"wessamabdelwahab\" . ` to find all instances of wessamabdelwahab/react-app.
+**2. Search for the Reference:** Use the command ` grep -r  \"wessamabdelwahab\" . ` to find all instances of wessamabdelwahab/react-app.
 
-3.  **Update the Reference:** Replace wessamabdelwahab/react-app with your-username/react-app (Ex: gurpreet2828/react-app) in the Jenkinsfile by running the following command
+**3. Update the Reference:** Replace wessamabdelwahab/react-app with your-username/react-app (Ex: gurpreet2828/react-app) in the Jenkinsfile by running the following command
 
 ```shell
 sed -i \'s/wessamabdelwahab\\react-app/gurpreet2828\\react-app/g\' Jenkinsfile
@@ -132,12 +133,15 @@ sed -i \'s/wessamabdelwahab\\react-app/gurpreet2828\\react-app/g\' Jenkinsfile
 ```shell
 git add Jenkinsfile
 ```
+
 ```shell
 git commit -m "Updated image reference to my GitHub username"
 ```
+
 ```shell
 git push origin main
 ```
+
 **5. Re-run the Jenkins Pipeline:** Trigger a manual build or wait for automatic execution.
 
 **6. Verify the Fix:** Ensure the pipeline runs successfully and test the application (e.g., via curl localhost:1233).
@@ -157,14 +161,15 @@ Test the connection by running `curl localhost:1233` to confirm the app is runni
 
 **Solution:** Update the Docker image reference in the Jenkinsfile to your-username/react-app.
 
-##**Step 1: Transfer Files files from Windows to Linux Machine**
+## **Step 1: Transfer Files files from Windows to Linux Machine**
 
 Use `scp` to transfer your Terraform and Docker files from your local machine to your Ubuntu instance.
-**Note: **Run the following command in Command Prompt (CMD) to copy the Terraform and Docker code to your Linux machine:
+**Note:** Run the following command in Command Prompt (CMD) to copy the Terraform and Docker code to your Linux machine:
 
 ```shell
 scp -r -v \"C:\Users\Gurpreet\OneDrive\Desktop\York Univ\Assignments\Assignment 6\Jenkins-CICD\" administrator@10.0.0.83:/home/administrator
 ```
+
 ![Image1](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image1.png)
 
 Next, it will prompt you for the password of your Linux machine, as shown in the image below.
@@ -180,58 +185,67 @@ After entering the password, you will be logged into your Ubuntu Linux machine a
 ```shell
 sudo chown -R administrator:administrator/home/administrator/Jenkins-CICD
 ```
+
 ```shell
 sudo chmod -R u+rwx /home/administrator/Jenkins-CICD
 ```
+
 These commands will assign ownership to the administrator user and grant the necessary read, write, and execute permissions for the Jenkins-CICD directory.
 
-##**Step 2: Install Terraform and AWS Command Line Interface (CLI)**
+## **Step 2: Install Terraform and AWS Command Line Interface (CLI)**
 
-###**1. Update and install dependencies**
+### **1. Update and install dependencies**
 
 ```shell
 sudo apt update && sudo apt install -y gnupg software-properties-common curl
 ```
 
-###**2. Add the HashiCorp GPG key**
+### **2. Add the HashiCorp GPG key**
 
 ```shell
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 ```
-###**3. Add the HashiCorp repo**
+
+### **3. Add the HashiCorp repo**
 
 ```shell
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
 ```
+
 ```shell
 sudo tee /etc/apt/sources.list.d/hashicorp.list
 ```
 
-###**4. Update and install Terraform**
+### **4. Update and install Terraform**
 
 ```shell
 sudo apt update
 ```
+
 ```shell
 sudo apt install terraform -y
 ```
-###**5. Verify installation**
+
+### **5. Verify installation**
 
 ```shell
 terraform -v
 ```
+
 ![Image48](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image48.png)
 
-**AWSCLI Install**
+### **AWSCLI Install**
 
 **To install** the AWS CLI, run the following command
 
 ```shell
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 ```
+
 ```shell
 unzip awscliv2.zip
 ```
+
 ```shell
 sudo ./aws/install
 ```
@@ -241,11 +255,12 @@ sudo ./aws/install
 ```shell
 aws --version
 ```
+
 You see the following output
 
 ![Image49](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image49.png "Image49")
 
-##**Step 3: Create AWS account**
+## **Step 3: Create AWS account**
 
 After Creating
 
@@ -266,29 +281,30 @@ Configure AWS CLI with the New Access Key
 ```shell
 aws configure
 ```
+
 It will prompt you for:
 
-1.  **AWS Access Key ID**: Your access key from AWS IAM.
+**1. AWS Access Key ID**: Your access key from AWS IAM.
 
-2.  **AWS Secret Access Key**: Your secret key from AWS IAM.
+**2. AWS Secret Access Key**: Your secret key from AWS IAM.
 
-3.  **Default region name**: (e.g., us-east-1, us-west-2).
+**3. Default region name**: (e.g., us-east-1, us-west-2).
 
-4.  **Default output format**: (json, table, text --- default is json).
+**4. Default output format**: (json, table, text --- default is json).
 
 ***Enter access key and secret key which you will get from aws account***
 
 **Check credentials added to aws configure correctly**
+
 ```shell
 aws sts get-caller-identity
 ```
 
-If your AWS CLI is properly configured, you\'ll see a response like
-this:
+If your AWS CLI is properly configured, you\'ll see a response like this:
 
 ![Image52](http://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image52.png "Image52")
 
-##**Step 4: Ansible Playbook**
+## **Step 4: Ansible Playbook**
 
 Ansible playbook automates the installation of several tools on an AWS EC2 instance (running Amazon Linux 2) and configures them. Here's a summary of what the playbook will install and configure:
 
@@ -329,33 +345,31 @@ Ansible playbook automates the installation of several tools on an AWS EC2 insta
 
 The overall goal of this playbook is to set up Jenkins and Docker on the EC2 instance, configure Maven for build automation, and ensure these tools are ready for use in a development or CI/CD environment.
 
-##**Step 5: Provisioning AWS Infrastructure using Terraform and Ansible Playbook**
+## **Step 5: Provisioning AWS Infrastructure using Terraform and Ansible Playbook**
 
-1.  `Terraform init`
+1. `Terraform init`
 
-- prepares your environment and configures everything Terraform needs to
-  interact with your infrastructure.
+- prepares your environment and configures everything Terraform needs to interact with your infrastructure.
 
 ![Image4](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image4.png "Image4")
 
-2.  `terraform fmt`
+2. `terraform fmt`
 
 - used to **automatically format** your Terraform configuration files to a standard style. It ensures that your code is consistently formatted, making it easier to read and maintain.
 
-3.  `Terraform validate`
+3. `Terraform validate`:
 
 - used to **check the syntax and validity** of your Terraform configuration files. It helps you catch errors in the configuration before you attempt to run other Terraform commands, like terraform plan or terraform apply.
 
 ![Image5](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image5.png "Image5")
 
-4.  `terraform plan`
+4. `terraform plan`
 
-- used to **preview the changes** Terraform will make to your infrastructure based on the current configuration and the existing state. It shows what actions will be taken (such as creating,
-  modifying, or deleting resources) when you apply the configuration
+- used to **preview the changes** Terraform will make to your infrastructure based on the current configuration and the existing state. It shows what actions will be taken (such as creating, modifying, or deleting resources) when you apply the configuration
 
 - Before running terraform apply to check exactly what changes Terraform will make.
 
-5.  `Terraform apply`
+5. `Terraform apply`
 
 - executes the changes required to reach the desired state of your infrastructure as defined in your configuration files. It creates, updates, or deletes resources after showing a preview and asking for your approval (unless auto-approved).
 
@@ -365,35 +379,34 @@ If everything is set up correctly, you will see the public IP address displayed 
 
 **Jenkins Public URL:** <http://54.157.96.255:8080>
 
-**Verifying EC2 Instance Deployment on AWS**
+**Verifying EC2 Instance Deployment on AWS**:
 
 Terraform will provision the required infrastructure, including the Jenkins server hosted on an EC2 instance.
 
 You will also see the EC2 instance successfully created and running in your AWS account. To verify:
 
-1.  Log in to the [AWS Management Console](https://console.aws.amazon.com/).
+1. Log in to the [AWS Management Console](https://console.aws.amazon.com/).
 
-2.  Navigate to the **EC2 Dashboard**.
+2. Navigate to the **EC2 Dashboard**.
 
-3.  Under **Instances**, confirm that the newly created instance is listed and in a running state.
+3. Under **Instances**, confirm that the newly created instance is listed and in a running state.
 
 This EC2 instance will host your Jenkins server, and its public IP will be used to access the Jenkins
 
 ![Image35](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image35.png "Image35")
 
-##**Step 6: Access Jenkins Dashboard**
+## **Step 6: Access Jenkins Dashboard**
 
-Once the infrastructure is successfully deployed and Jenkins is
-installed, follow these steps to connect:
+Once the infrastructure is successfully deployed and Jenkins is installed, follow these steps to connect:
 
-1.  **Enter the public IP address with port 8080** (provided in the Terraform output).
+1. **Enter the public IP address with port 8080** (provided in the Terraform output).
     Example: <http://54.157.96.255:8080>
 
-2.  You should see the Jenkins setup screen.
+2. You should see the Jenkins setup screen.
 
 ![Image7](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image7.png "Image7")
 
-3.  To complete the setup, you may need the **initial admin password**, which can be retrieved by running this command on your EC2 instance:
+3. To complete the setup, you may need the **initial admin password**, which can be retrieved by running this command on your EC2 instance:
 
 Connect to ec2-instance by running following command
 
@@ -403,29 +416,28 @@ ssh -i /root/.ssh/docker ec2-user@ 54.157.96.255
 
 ![Image8](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image8.png "Image8")
 
-4.  On your EC2 instance, run the following command to retrieve the password:
+4. On your EC2 instance, run the following command to retrieve the password:
 
 ```shell
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
+
 ![Image9](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image9.png "Image9")
 
-5.  **Enter the Password**
+5. **Enter the Password**
 
 Paste the password into the setup wizard's prompt to unlock Jenkins.
 
-6.  **Install Suggested Plugins**
+6. **Install Suggested Plugins**
 
-Jenkins will now offer to install a set of suggested plugins. These
-plugins provide essential functionality for Jenkins operations.
+Jenkins will now offer to install a set of suggested plugins. These plugins provide essential functionality for Jenkins operations.
 
-Click on **\"Install suggested plugins\"** to proceed with the
-installation.
+Click on **\"Install suggested plugins\"** to proceed with the installation.
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](media/image18.png){width="7.0in" height="3.9375in"}
 
-7.  **Create the First Admin User**
+7. **Create the First Admin User**
 
 After the plugin installation is complete, Jenkins will prompt you to
 set up the first admin user. Fill in the required information:
