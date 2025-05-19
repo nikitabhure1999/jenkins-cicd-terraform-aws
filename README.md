@@ -12,7 +12,7 @@
 - [Step 4: Ansible Playbook](#step-4-ansible-playbook)
 - [Step 5: Provisioning AWS Infrastructure using Terraform and Ansible Playbook](#step-5-provisioning-aws-infrastructure-using-terraform-and-ansible-playbook)
 - [Step 6: Access Jenkins Dashboard](#step-6-access-jenkins-dashboard)
-- [Step 7: Configure GitHub Access Key in Jenkins]((#step-7-configure-github-access-key-in-jenkins)
+- [Step 7: Configure GitHub Access Key in Jenkins](#step-7-configure-github-access-key-in-jenkins)
 - [Step 8: Configure GitHub and DockerHub Credentials in Jenkins](#step-8-configure-github-and-dockerhub-credentials-in-jenkins)
 - [Step 9: Create a Multibranch Pipeline project in Jenkins](#step-9-create-a-multibranch-pipeline-project-in-jenkins)
 - [Step 10: Terraform Destroy](#step-10-terraform-destroy)
