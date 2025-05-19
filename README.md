@@ -319,7 +319,7 @@ aws sts get-caller-identity
 
 If your AWS CLI is properly configured, you\'ll see a response like this:
 
-![Image52](http://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image52.png)
+![Image52](https://github.com/gurpreet2828/jenkins-cicd-terraform-aws/blob/2ffcf931d3af7705aa0c0f50a1d4282ab078d392/Images/Image52.png)
 
 ## **Step 4: Ansible Playbook**
 
