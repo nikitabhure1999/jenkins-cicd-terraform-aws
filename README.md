@@ -13,7 +13,6 @@
 - [Step 5: Provisioning AWS Infrastructure using Terraform and Ansible Playbook](#step-5-provisioning-aws-infrastructure-using-terraform-and-ansible-playbook)
 - [Step 6: Access Jenkins Dashboard](#step-6-access-jenkins-dashboard)
 - [Step 7: Configure GitHub Access Key in Jenkins]((#step-7-configure-github-access-key-in-jenkins)
-)
 - [Step 8: Configure GitHub and DockerHub Credentials in Jenkins](#step-8-configure-github-and-dockerhub-credentials-in-jenkins)
 - [Step 9: Create a Multibranch Pipeline project in Jenkins](#step-9-create-a-multibranch-pipeline-project-in-jenkins)
 - [Step 10: Terraform Destroy](#step-10-terraform-destroy)
@@ -368,7 +367,7 @@ The overall goal of this playbook is to set up Jenkins and Docker on the EC2 ins
 
 - prepares your environment and configures everything Terraform needs to interact with your infrastructure.
 
-![Image4](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image4.png)
+![Image4](https://github.com/gurpreet2828/jenkins-cicd-terraform-aws/blob/b44dfff4b7ef4d3ac177f4c860b8586c9a3cb5ee/Images/Image4.png)
 
 2. `terraform fmt`
 
