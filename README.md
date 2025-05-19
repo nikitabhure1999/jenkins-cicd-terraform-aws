@@ -248,7 +248,7 @@ sudo apt install terraform -y
 terraform -v
 ```
 
-![Image48](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image48.png)
+![Image48](https://github.com/gurpreet2828/jenkins-cicd-terraform-aws/blob/60928b5141cfe4d27af56b5751f7a3ff40030e03/Images/Image48.png)
 
 ### **AWSCLI Install**
 
