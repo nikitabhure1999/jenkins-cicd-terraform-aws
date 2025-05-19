@@ -283,7 +283,7 @@ After Creating
 
 Click on account name - Select Security Credentials
 
-![Image50](https://github.com/gurpreet2828/Jenkins-CICD/blob/47b28cca86aff817a0d18ae3a7d99cb69b7591f3/Images/Image50.png")
+![Image50](https://github.com/gurpreet2828/jenkins-cicd-terraform-aws/blob/51d4f14a4001b6679c4c4977191cf7a04ea76768/Images/Image50.png)
 
 Click **Create access key**.
 
