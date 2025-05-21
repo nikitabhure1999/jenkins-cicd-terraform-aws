@@ -1,5 +1,5 @@
 
-# **Implementation of React App Deployment on AWS Infrastructure via Jenkins CI/CD Pipeline**Jenkins CI/CD Pipeline
+# **Implementation of React App Deployment on AWS Infrastructure via Jenkins CI/CD Pipeline
 
 ## **Table of Contents**
 
